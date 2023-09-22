@@ -40,12 +40,18 @@ function Table(props) {
             // as we are updating  the value in local storage, so to re render need to update a state too
             setRender(Math.random())
 
+            // or we can achieve this same by using vanilla javascript or by manipulating document object directly as mention below
+            // document.getElementById("name").innerHTML = JSON.parse(localStorage.getItem("result"))?.name.title+" " +JSON.parse(localStorage.getItem("result"))?.name.first+" " +JSON.parse(localStorage.getItem("result"))?.name.last;
+            // document.getElementById("email").innerHTML =JSON.parse(localStorage.getItem("result"))?.email
+
         })
         .catch(err => {
             console.log(err);
         })
         // we can use forceUpdate() to force re-render the component without updating state
         // forceUpdate()
+
+
         
     }
     return (
@@ -59,13 +65,13 @@ function Table(props) {
             {/* mapping with state */}
             {/* <label>{respData?.name.title} {respData?.name.first} {respData?.name.last}</label> */}
             {/* mapping with localStorage */}
-            <label>{JSON.parse(localStorage.getItem("result"))?.name.title} {JSON.parse(localStorage.getItem("result"))?.name.first} {JSON.parse(localStorage.getItem("result"))?.name.last}</label>
+            <label id="name">{JSON.parse(localStorage.getItem("result"))?.name.title} {JSON.parse(localStorage.getItem("result"))?.name.first} {JSON.parse(localStorage.getItem("result"))?.name.last}</label>
             <br/>
             <label>Email : </label>
             {/* mapping with state */}
             {/* <label>{respData?.email}</label> */}
             {/* mapping with localStorage */}
-            <label>{JSON.parse(localStorage.getItem("result"))?.email}</label>
+            <label id="email">{JSON.parse(localStorage.getItem("result"))?.email}</label>
 
             {/* </>
             ))} */}
