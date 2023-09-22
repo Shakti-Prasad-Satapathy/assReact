@@ -1,10 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import axios from 'axios'
 
+// **************************************Annotation***************************************
+// 
+// as per given requirement these are the solutions...
+// there are multiple solution for this requirement
+// added known solutions  for it...
+// we might do it better by googling it....
+// added multiple solutions..... as requirement is unclear for me (currently) so updating the state for re-rendering the Component
+// we can do  the same without updating the state.... or using useReducer hooks (codes are in comment)
+// I have done this assignment in simplest way....
+// proper solution can be done after proper requirement
+// 
+// ***************************************Annotation*********************************************
 
 function Table(props) {
     const [respData, setRespData] = useState()
     const [render, setRender] = useState()
+    // to do this without updating state we can add below line and uncomment line 35 (callig forceUpdate())
+    // and not doing state update
+    // const [ignored, forceUpdate] = useReducer(x => x + 1 , 0)
 
     useEffect(() => {
         getData()
